@@ -1,8 +1,26 @@
 package br.com.criandoapi.springjava.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
-    private Integer id;   
-    private String nome;   
+    
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+    
+    @Column(name = "nome", length = 200, nullable = true)
+    private String nome;
+
+    @Column(name = "email", length = 200, nullable = true)
     private String email;   
     private String senha;   
     private String telefone;   
